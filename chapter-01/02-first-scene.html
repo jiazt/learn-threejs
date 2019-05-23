@@ -31,10 +31,11 @@
         // create a camera, which defines where we're looking at.
         var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        // create a render and set the size
+        // create a render(渲染器) and set the size
+        // 能够在每次屏幕刷新时对场景进行绘制
         var renderer = new THREE.WebGLRenderer();
         renderer.setClearColorHex();
-        renderer.setClearColor(new THREE.Color(0xEEEEEE));
+        renderer.setClearColor(new THREE.Color(0xeeeeee));
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         // show axes in the screen
