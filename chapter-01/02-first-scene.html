@@ -28,7 +28,8 @@
         // create a scene, that will hold all our elements such as objects, cameras and lights.
         var scene = new THREE.Scene();
 
-        // create a camera, which defines where we're looking at.
+        // create a camera, which defines where we're looking at
+        // 参数1：视野角度（FOV） 参数2：长宽比（aspect ratio） 参数3和4：远剪切面和近剪切面
         var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
         // create a render(渲染器) and set the size
@@ -38,11 +39,11 @@
         renderer.setClearColor(new THREE.Color(0xeeeeee));
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        // show axes in the screen
+        // show axes(轴) in the screen
         var axes = new THREE.AxisHelper(20);
         scene.add(axes);
 
-        // create the ground plane
+        // create the ground plane 平面几何体（作地面）
         var planeGeometry = new THREE.PlaneGeometry(60, 20);
         var planeMaterial = new THREE.MeshBasicMaterial({color: 0xcccccc});
         var plane = new THREE.Mesh(planeGeometry, planeMaterial);
