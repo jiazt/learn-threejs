@@ -38,10 +38,11 @@
 
         renderer.setClearColor(new THREE.Color(0xEEEEEE, 1.0));
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMapEnabled = true;
+        renderer.shadowMapEnabled = true; //是否有阴影
 
         // create the ground plane
         var planeGeometry = new THREE.PlaneGeometry(60, 20);
+        //MeshLambertMaterial Lambert网格材质 一种非光泽表面的材质，没有镜面高光。
         var planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
         var plane = new THREE.Mesh(planeGeometry, planeMaterial);
         plane.receiveShadow = true;
@@ -88,7 +89,7 @@
         camera.position.z = 30;
         camera.lookAt(scene.position);
 
-        // add spotlight for the shadows
+        // add spotlight for the shadows 聚光灯是从一个方向上的一个点发出，沿着一个圆锥体，它离光越远，它的尺寸就越大。 
         var spotLight = new THREE.SpotLight(0xffffff);
         spotLight.position.set(-40, 60, -10);
         spotLight.castShadow = true;
