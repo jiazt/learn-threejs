@@ -44,25 +44,25 @@
         scene.add(axes);
 
         // create the ground plane 平面几何体（作地面）
-        var planeGeometry = new THREE.PlaneGeometry(60, 20);
+        var planeGeometry = new THREE.PlaneGeometry(50, 30); //(长,宽)
         var planeMaterial = new THREE.MeshBasicMaterial({color: 0xcccccc});
         var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 
-        // rotate and position the plane
-        plane.rotation.x = -0.5 * Math.PI;
-        plane.position.x = 15;
+        // rotate and position the plane 
+        plane.rotation.x = -0.5 * Math.PI;//x轴旋转角度
+        plane.position.x = 6;
         plane.position.y = 0;
         plane.position.z = 0;
 
         // add the plane to the scene
         scene.add(plane);
 
-        // create a cube
+        // create a cube 创建立方体
         var cubeGeometry = new THREE.BoxGeometry(5, 5, 5);
         var cubeMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
         var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 
-        // position the cube
+        // position the cube 
         cube.position.x = -4;
         cube.position.y = 3;
         cube.position.z = 0;
@@ -70,9 +70,9 @@
         // add the cube to the scene
         scene.add(cube);
 
-        // create a sphere
+        // create a sphere 创建球体
         var sphereGeometry = new THREE.SphereGeometry(4, 20, 20);
-        var sphereMaterial = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: true});
+        var sphereMaterial = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: false});
         var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
         // position the sphere
@@ -92,7 +92,7 @@
         // add the output of the renderer to the html element
         document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-        // render the scene
+        // render the scene 渲染器中用相机角度渲染场景
         renderer.render(scene, camera);
     }
     window.onload = init;
