@@ -43,7 +43,11 @@
         var axes = new THREE.AxisHelper(20);
         scene.add(axes);
 
-        // create the ground plane 平面几何体（作地面）
+        // create the ground plane 平面几何体（作地面）PlaneGeometry
+        // width — 平面沿着X轴的宽度。默认值是1。
+        // height — 平面沿着Y轴的高度。默认值是1。
+        // widthSegments — （可选）平面的宽度分段数，默认值是1。
+        // heightSegments — （可选）平面的高度分段数，默认值是1。
         var planeGeometry = new THREE.PlaneGeometry(50, 30); //(长,宽)
         var planeMaterial = new THREE.MeshBasicMaterial({color: 0xcccccc});
         var plane = new THREE.Mesh(planeGeometry, planeMaterial);
@@ -57,7 +61,13 @@
         // add the plane to the scene
         scene.add(plane);
 
-        // create a cube 创建立方体
+        // create a cube 创建立方体 BoxGeometry
+        // width — X轴上面的宽度，默认值为1。
+        // height — Y轴上面的高度，默认值为1。
+        // depth — Z轴上面的深度，默认值为1。
+        // widthSegments — （可选）宽度的分段数，默认值是1。
+        // heightSegments — （可选）宽度的分段数，默认值是1。
+        // depthSegments — （可选）宽度的分段数，默认值是1
         var cubeGeometry = new THREE.BoxGeometry(5, 5, 5);
         var cubeMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, wireframe: true});
         var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
