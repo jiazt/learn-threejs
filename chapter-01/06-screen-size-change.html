@@ -156,6 +156,7 @@
             return stats;
         }
     }
+    // 更新相机宽高比 更新渲染器大小
     function onResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -165,7 +166,7 @@
 
     window.onload = init;
 
-    // listen to the resize events
+    // listen to the resize events 页面可视区改变时候触发
     window.addEventListener('resize', onResize, false);
 
 </script>
