@@ -80,13 +80,15 @@
         // add the output of the renderer to the html element
         document.getElementById("WebGL-output").appendChild(renderer.domElement);
 
-        // call the render function
+        // call the render function 
+        // 动态操作场景里面cube
         var step = 0;
 
         var controls = new function () {
             this.rotationSpeed = 0.02;
             this.numberOfObjects = scene.children.length;
 
+            // 删除最后添加的cube
             this.removeCube = function () {
                 var allChildren = scene.children;
                 var lastObject = allChildren[allChildren.length - 1];
@@ -96,6 +98,7 @@
                 }
             };
 
+            // 随机位置添加一个随机大小的cube
             this.addCube = function () {
 
                 var cubeSize = Math.ceil((Math.random() * 3));
