@@ -93,8 +93,7 @@
 
         function addGeometries(scene) {
             var geoms = [];
-            // 圆柱几何体CylinderGeometry(radiusTop : Float, radiusBottom : Float, height : Float, radialSegments : Integer, heightSegments : Integer, openEnded : Boolean, thetaStart : Float, thetaLength : Float)
-            //圆柱几何体
+            // 圆柱几何体 CylinderGeometry(radiusTop : Float, radiusBottom : Float, height : Float, radialSegments : Integer, heightSegments : Integer, openEnded : Boolean, thetaStart : Float, thetaLength : Float)
             // radiusTop — 圆柱的顶部半径，默认值是1。
             // radiusBottom — 圆柱的底部半径，默认值是1。
             // height — 圆柱的高度，默认值是1。
@@ -103,10 +102,16 @@
             // openEnded — 一个Boolean值，指明该圆锥的底面是开放的还是封顶的。默认值为false，即其底面默认是封顶的。
             // thetaStart — 第一个分段的起始角度，默认为0。（three o'clock position）
             // thetaLength — 圆柱底面圆扇区的中心角，通常被称为“θ”（西塔）。默认值是2*Pi，这使其成为一个完整的圆柱。
-            geoms.push(new THREE.CylinderGeometry(1, 4, 4));
+            geoms.push(new THREE.CylinderGeometry(1, 2, 4));
 
-            // basic cube
-            geoms.push(new THREE.BoxGeometry(2, 2, 2));
+            // 立方体 BoxGeometry(width : Float, height : Float, depth : Float, widthSegments : Integer, heightSegments : Integer, depthSegments : Integer)
+            // width — X轴上面的宽度，默认值为1。
+            // height — Y轴上面的高度，默认值为1。
+            // depth — Z轴上面的深度，默认值为1。
+            // widthSegments — （可选）宽度的分段数，默认值是1。
+            // heightSegments — （可选）宽度的分段数，默认值是1。
+            // depthSegments — （可选）宽度的分段数，默认值是1。
+            geoms.push(new THREE.BoxGeometry(2, 4, 3));
 
             // basic spherer
             geoms.push(new THREE.SphereGeometry(2));
