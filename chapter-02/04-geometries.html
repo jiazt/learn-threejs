@@ -171,12 +171,27 @@
             // stacks — The count of stacks to use for the parametric function
             geoms.push(new THREE.ParametricGeometry(THREE.ParametricGeometries.mobius3d, 20, 10));
 
-            //
+            // 四面几何体 TetrahedronGeometry(radius : Float, detail : Integer)
+            // radius — 四面体的半径，默认值为1。
+            // detail — 默认值为0。将这个值设为一个大于0的数将会为它增加一些顶点，使其不再是一个四面体。
             geoms.push(new THREE.TetrahedronGeometry(3));
 
-            geoms.push(new THREE.TorusGeometry(3, 1, 10, 10));
+            // 圆环几何体 TorusGeometry(radius : Float, tube : Float, radialSegments : Integer, tubularSegments : Integer, arc : Float)
+            // radius - 圆环的半径，从圆环的中心到管道（横截面）的中心。默认值是1。
+            // tube — 管道的半径，默认值为0.4。
+            // radialSegments — 圆环的分段数，默认值为8。
+            // tubularSegments — 管道的分段数，默认值为6。
+            // arc — 圆环的中心角（单位是弧度），默认值为Math.PI * 2。
+            geoms.push(new THREE.TorusGeometry(3, 1, 16, 100));
 
-            geoms.push(new THREE.TorusKnotGeometry(3, 0.5, 50, 20));
+            // 圆环扭曲几何体 TorusKnotGeometry(radius : Float, tube : Float, tubularSegments : Integer, radialSegments : Integer, p : Integer, q : Integer)
+            // radius - 圆环的半径，默认值为1。
+            // tube — 管道的半径，默认值为0.4。
+            // tubularSegments — 管道的分段数量，默认值为64。
+            // radialSegments — 横截面分段数量，默认值为8。
+            // p — 这个值决定了几何体将绕着其旋转对称轴旋转多少次，默认值是2。
+            // q — 这个值决定了几何体将绕着其内部圆环旋转多少次，默认值是3。
+            geoms.push(new THREE.TorusKnotGeometry(3, 0.5, 100, 16));
 
             var j = 0;
             for (var i = 0; i < geoms.length; i++) {
