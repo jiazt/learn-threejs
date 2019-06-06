@@ -160,10 +160,15 @@
             // phiLength — 车削部分的弧度（0-2PI）范围，2PI将是一个完全闭合的、完整的车削几何体，小于2PI是部分车削。默认值是2PI。
             geoms.push(new THREE.LatheGeometry(pts, 12));
 
-            // create a OctahedronGeometry
+            // 八面几何体 OctahedronGeometry(radius : Float, detail : Integer)
+            // radius — 八面体的半径，默认值为1。
+            // detail — 默认值为0，将这个值设为一个大于0的数将会为它增加一些顶点，使其不再是一个八面体。
             geoms.push(new THREE.OctahedronGeometry(3));
 
-            // create a geometry based on a function
+            // 参数化几何体 ParametricGeometry(func : Function, slices : Integer, stacks : Integer)
+            // func — A function that takes in a u and v value each between 0 and 1 and modifies a third Vector3 argument
+            // slices — The count of slices to use for the parametric function 
+            // stacks — The count of stacks to use for the parametric function
             geoms.push(new THREE.ParametricGeometry(THREE.ParametricGeometries.mobius3d, 20, 10));
 
             //
