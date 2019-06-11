@@ -201,6 +201,8 @@
                 // MeshLambertMaterial 一种非光泽表面的材质，没有镜面高光。
                 // MeshLambertMaterial( parameters : Object )
                 // parameters - (可选)用于定义材质外观的对象，具有一个或多个属性。 材质的任何属性都可以从此处传入(包括从Material继承的任何属性)。
+
+                // MeshBasicMaterial 一个以简单着色（平面或线框）方式来绘制几何体的材质
                 var materials = [
 
                     new THREE.MeshLambertMaterial({color: Math.random() * 0xffffff, shading: THREE.FlatShading}),
@@ -208,6 +210,9 @@
 
                 ];
 
+                // 包含用于场景操作的有用实用程序函数的类。
+                //创建一个新组，其中包含材质中定义的每种材质的新网格。请注意，这与为1个网格定义多种材质的材料数组不同。
+                // 这对于同时需要材质和线框实现的对象非常有用
                 var mesh = THREE.SceneUtils.createMultiMaterialObject(geoms[i], materials);
                 mesh.traverse(function (e) {
                     e.castShadow = true

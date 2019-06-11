@@ -46,7 +46,7 @@
         renderer.shadowMapEnabled = true;
 
         // create the ground plane
-        var planeGeometry = new THREE.PlaneGeometry(60, 40, 1, 1);
+        var planeGeometry = new THREE.PlaneGeometry(20, 20, 1, 1);
         var planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
         var plane = new THREE.Mesh(planeGeometry, planeMaterial);
         plane.receiveShadow = true;
@@ -67,8 +67,8 @@
         camera.lookAt(new THREE.Vector3(5, 0, 0));
 
         // add subtle ambient lighting
-//        var ambientLight = new THREE.AmbientLight(0x494949);
-//        scene.add(ambientLight);
+        // var ambientLight = new THREE.AmbientLight(0x494949);
+        // scene.add(ambientLight);
 
         // add spotlight for the shadows
         var spotLight = new THREE.SpotLight(0xffffff);
@@ -109,12 +109,13 @@
             new THREE.Face3(3, 6, 4),
         ];
 
+        // three.js中的geometry为三维空间中的点集同点集闭合后的各个面的集合
         var geom = new THREE.Geometry();
         geom.vertices = vertices;
         geom.faces = faces;
         geom.computeFaceNormals();
 
-
+        // 将这个面创建为一个带网格且透明有阴影带mesh
         var materials = [
             new THREE.MeshLambertMaterial({opacity: 0.6, color: 0x44ff44, transparent: true}),
             new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true})
@@ -126,8 +127,8 @@
         mesh.children.forEach(function (e) {
             e.castShadow = true
         });
-//        mesh.children[0].translateX(0.5);
-//        mesh.children[0].translateZ(0.5);
+        // mesh.children[0].translateX(0.5);
+        // mesh.children[0].translateZ(0.5);
 
         scene.add(mesh);
 
