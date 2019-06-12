@@ -132,6 +132,7 @@
 
         scene.add(mesh);
 
+        //添加GUI控制器
         function addControl(x, y, z) {
             var controls = new function () {
                 this.x = x;
@@ -152,6 +153,7 @@
         controlPoints.push(addControl(0, 0, 0));
         controlPoints.push(addControl(0, 0, 3));
 
+        // 结合之前的文字three.js 手动添加元素，利用gui库建立一个控制器来控制各个顶点的位置
         var gui = new dat.GUI();
         gui.add(new function () {
             this.clone = function () {
@@ -192,7 +194,7 @@
         function addCube() {
 
         }
-
+        // 使用了克隆函数clone render函数中，我们将方块的顶点集合变为控制器变更后的值：
         function render() {
             stats.update();
 
