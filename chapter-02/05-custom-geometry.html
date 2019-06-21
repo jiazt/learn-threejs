@@ -114,6 +114,8 @@
         geom.vertices = vertices;
         geom.faces = faces;
         geom.computeFaceNormals();
+        // 如上，先创立一个由点阵组成点数组vertices，付值给geom实例，然后faces表示各个面的集合，new THREE.Faces()中的三个值表示点阵vertices中的哪个点，索引从0开始，每个Face为一个三角形（之所以用三角形是因为三角形可以比较容易组成其他形状），两个三角形构成方块点一个面，共12个三角形，6个面。computeFaceNormals()即完成构建
+
 
         // 将这个面创建为一个带网格且透明有阴影带mesh
         var materials = [
@@ -194,7 +196,7 @@
         function addCube() {
 
         }
-        // 使用了克隆函数clone render函数中，我们将方块的顶点集合变为控制器变更后的值：
+        // render函数中，我们将方块的顶点集合变为控制器变更后的值
         function render() {
             stats.update();
 
