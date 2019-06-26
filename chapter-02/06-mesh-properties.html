@@ -83,6 +83,7 @@
         // call the render function
         var step = 0;
 
+        // control控制 大小（scale） 方位（position） 旋转角度（rotation）
         var controls = new function () {
             this.scaleX = 1;
             this.scaleY = 1;
@@ -125,6 +126,7 @@
 
         var gui = new dat.GUI();
 
+        // gui的下拉展开控制栏
         guiScale = gui.addFolder('scale');
         guiScale.add(controls, 'scaleX', 0, 5);
         guiScale.add(controls, 'scaleY', 0, 5);
@@ -171,14 +173,17 @@
             stats.update();
 
             // render using requestAnimationFrame
-
-
+            // render更新后 刷新cube是否显示、旋转方向、scale缩放程度、
             cube.visible = controls.visible;
 
 
             cube.rotation.x = controls.rotationX;
             cube.rotation.y = controls.rotationY;
             cube.rotation.z = controls.rotationZ;
+
+            cube.translate.x = controls.translateX;
+            cube.translate.y = controls.translateY;
+            cube.translate.z = controls.translateZ;
 
             cube.scale.set(controls.scaleX, controls.scaleY, controls.scaleZ);
 
