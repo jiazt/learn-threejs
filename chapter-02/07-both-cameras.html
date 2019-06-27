@@ -63,10 +63,10 @@
         scene.add(plane);
 
         var cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
-
+        // 180/5 = 36  36*36个cube
         for (var j = 0; j < (planeGeometry.parameters.height / 5); j++) {
             for (var i = 0; i < planeGeometry.parameters.width / 5; i++) {
-                var rnd = Math.random() * 0.75 + 0.25;
+                var rnd = Math.random() * 0.75 + 0.25; //color颜色值 rnd
                 var cubeMaterial = new THREE.MeshLambertMaterial();
                 cubeMaterial.color = new THREE.Color(rnd, 0, 0);
                 var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
@@ -97,6 +97,7 @@
 
         var controls = new function () {
             this.perspective = "Perspective";
+            //切换相机
             this.switchCamera = function () {
                 if (camera instanceof THREE.PerspectiveCamera) {
                     camera = new THREE.OrthographicCamera(window.innerWidth / -16, window.innerWidth / 16, window.innerHeight / 16, window.innerHeight / -16, -200, 500);
